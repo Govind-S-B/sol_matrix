@@ -1,42 +1,44 @@
 import 'dart:io';
 
-void main(){
-  print("enter number of equations ");
-  var m = int.parse(stdin.readLineSync()!); // number of rows -> m
-  print("enter number of variables ");
-  var n = int.parse(stdin.readLineSync()!); // number of coloumns -> n
+void Mprint(List<List<int>> mat){ // Matrix Print Function
+  int m = mat.length;
+  int n = mat[0].length;
 
-  List<List<int>> matA = [] ;
+    for(int i=0;i<m;i++){
+    for(int j=0;j<n;j++){
+      stdout.write("${mat[i][j]} ");
+    }
+    stdout.write("\n");
+  }
+}
+
+void main(){
+
+  print("enter number of equations ");
+  var m = int.parse(stdin.readLineSync()!); // number of rows / equaition -> m (iterated by i)
+  print("enter number of variables ");
+  var n = int.parse(stdin.readLineSync()!); // number of coloumns / variables -> n (iterated by j)
+
+  List<List<int>> matA = [];
   List<List<int>> matB = [];
 
 
+// assuming the equations are of the standard form
+// a1X + b1Y + .. = Constant
+
 // getting co-efficient matrix Mat A values
-
   for(int i=0;i<m;i++){
-    matA.add([]);
-    for(int j=0;j<n;j++){
-      matA[i].add(int.parse(stdin.readLineSync()!));
-    }
+    print("Enter co-efficients of equation ${i+1}");
+    matA.add(stdin.readLineSync()!.split(" ").map(int.parse).toList());
   }
-
+  
 // getting constant matrix Mat B values
-
   for(int i=0;i<m;i++){
-    matB.add([]);
-    for(int j=0;j<n;j++){
-      matB[i].add(int.parse(stdin.readLineSync()!));
-    }
+    print("Enter constant of equation ${i+1}");
+    matB.add(stdin.readLineSync()!.split(" ").map(int.parse).toList());
   }
 
-  print(matA);
-  print(matB);
-
-/*
-  for(int i=0;i<m;i++){
-    for(int j=0;j<n;j++){
-      print("${matA[i][j]} ");
-    }
-    print("\n");
-  }  */
+Mprint(matA);
+Mprint(matB);
 
 }
