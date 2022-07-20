@@ -1,3 +1,10 @@
+/*TO-DO
+-Matrix Multiplication Function , take two matrices and return a matrix [EASY] @Mriiki
+-Transpose function , take a matrix return another matrix [EASY] @Mriiki
+-Determinant matrix (also includes row remover and coloumn remover function) [HEAVY]
+-Cofactor matrix [HEAVY]
+*/
+
 import 'dart:io';
 
 void Mprint(List<List<int>> mat){ // Matrix Print Function
