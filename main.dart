@@ -35,14 +35,6 @@ List<List<int>> M_colRemover(List<List<int>> mat , int coloumn_index){
   return mat;
 }
 
-/*
-determ = 0
-if len of mat[0] == 1 , return that element itself
-else :
-for i in first row mat[0]
-for j in each elament of row
-determ + = that element * pow(-1,i+j) * determ(mat.rowpop(i).coloumnpop(j))*/
-
 int Determinant(List<List<int>> mat){
   if ((mat.length == 1) && (mat[0].length == 1)){
     return mat[0][0];
