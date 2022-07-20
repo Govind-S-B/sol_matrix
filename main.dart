@@ -2,7 +2,7 @@
 -Matrix Multiplication Function , take two matrices and return a matrix [EASY] @Mriiki
 -Transpose function , take a matrix return another matrix [EASY] @Mriiki
 -Can someone also just test that row remover and column remover functiion [EASY] @Aasish
--Determinant matrix [HEAVY]
+-If the column remover functions and row remover functions work can someone test the determinant function too [MEDIUM]
 -Cofactor matrix (part of adjoint matrix) [HEAVY] 
 */
 
@@ -42,6 +42,27 @@ else :
 for i in first row mat[0]
 for j in each elament of row
 determ + = that element * pow(-1,i+j) * determ(mat.rowpop(i).coloumnpop(j))*/
+
+int Determinant(List<List<int>> mat){
+  if ((mat.length == 1) && (mat[0].length == 1)){
+    return mat[0][0];
+  }
+
+  else {
+    int d = 0;
+
+    int m = mat.length;
+    int n = mat[0].length;
+
+    int i = 0;
+    for(int j=0;j<n;j++){
+      d += mat[i][j] * pow(-1,i+j).toInt() * Determinant(M_colRemover(M_rowRemover(mat, i),j));
+    }
+    
+    return d;
+
+  }
+}
 
 
 void main(){
