@@ -1,8 +1,9 @@
 /*TO-DO
 -Matrix Multiplication Function , take two matrices and return a matrix [EASY] @Mriiki
 -Transpose function , take a matrix return another matrix [EASY] @Mriiki
--Determinant matrix (also includes row remover and coloumn remover function) [HEAVY]
--Cofactor matrix [HEAVY]
+-Can someone also just test that row remover and column remover functiion [EASY] @Aasish
+-Determinant matrix [HEAVY]
+-Cofactor matrix (part of adjoint matrix) [HEAVY] 
 */
 
 import 'dart:io';
@@ -17,6 +18,20 @@ void Mprint(List<List<int>> mat){ // Matrix Print Function
     }
     stdout.write("\n");
   }
+}
+
+List<List<int>> M_rowRemover(List<List<int>> mat , int row_index){
+  mat.removeAt(row_index);
+  return mat;
+}
+
+List<List<int>> M_colRemover(List<List<int>> mat , int coloumn_index){
+  int m = mat.length;
+  
+  for(int i=0;i<m;i++)
+  mat[i].removeAt(coloumn_index);
+
+  return mat;
 }
 
 void main(){
