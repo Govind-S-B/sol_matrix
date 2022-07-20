@@ -3,7 +3,7 @@
 -Transpose function , take a matrix return another matrix [EASY] @Mriiki
 -Can someone also just test that row remover and column remover functiion [EASY] @Aasish
 -If the column remover functions and row remover functions work can someone test the determinant function too [MEDIUM]
--Cofactor matrix (part of adjoint matrix) [HEAVY] 
+-if determinant works can someone also test the cofactor matrix function [MEDIUM]
 */
 
 import 'dart:io';
@@ -54,6 +54,23 @@ int Determinant(List<List<int>> mat){
     return d;
 
   }
+}
+
+List<List<int>> CofactorM(List<List<int>> mat){
+
+  int m = mat.length;
+  int n = mat[0].length;
+  List<List<int>> mat_cofactor = []; // output matrix 
+
+  for(int i=0;i<m;i++){
+    mat_cofactor.add([]);
+    for(int j=0;j<n;j++){
+      mat_cofactor[i].add( pow(-1,i+j).toInt() * Determinant(M_colRemover(M_rowRemover(mat, i),j)) );
+    }
+  }
+
+  return mat_cofactor;  
+
 }
 
 
