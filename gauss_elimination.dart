@@ -39,8 +39,9 @@ void main(){
     matB.add(stdin.readLineSync()!.split(" ").map(int.parse).toList());
   }
 
-  matAB = matA; // WTF HOW DO U DEEP COPY A LIST IN DART , AAAAAAAAAAAAAA
   for(int i=0;i<m;i++){
+    matAB.add([]);
+    matAB[i].addAll(matA[i]);
     matAB[i].addAll(matB[i]);
   }
 
