@@ -39,10 +39,22 @@ void main(){
     matB.add(stdin.readLineSync()!.split(" ").map(int.parse).toList());
   }
 
-  for(int i=0;i<m;i++){
+  for(int i=0;i<m;i++){ // forming [AB] matrix
     matAB.add([]);
     matAB[i].addAll(matA[i]);
     matAB[i].addAll(matB[i]);
+  }
+
+  // row reduction
+  for(int i=0;i<m;i++){ // i basically goes through each diagonal , so i indicates row and coloumn of diagonal element 
+    for(int j=i+1;j<m;j++){ // j indicates each row unde the main row where the element must be reduced to zero
+    if(matAB[j][i]!=0){
+      var term = matAB[j][i]/matAB[i][i]; // the term with which row above is multiplied to reduce the row
+      for(int k=0;k<n;k++){ // k iterates through the coloumn of each jth row while reduction is being done
+        matAB[j][k] = (matAB[j][k] - term*matAB[i][k]).round();
+      }
+    }
+    }
   }
 
 Mprint(matA);
