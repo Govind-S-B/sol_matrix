@@ -50,7 +50,7 @@ void main(){
     for(int j=i+1;j<m;j++){ // j indicates each row unde the main row where the element must be reduced to zero
     if(matAB[j][i]!=0){
       var term = matAB[j][i]/matAB[i][i]; // the term with which row above is multiplied to reduce the row
-      for(int k=0;k<n;k++){ // k iterates through the coloumn of each jth row while reduction is being done
+      for(int k=0;k<n+1;k++){ // k iterates through the coloumn of each jth row while reduction is being done (n+1 here since i added B to A to get AB)
         matAB[j][k] = (matAB[j][k] - term*matAB[i][k]).round();
       }
     }
